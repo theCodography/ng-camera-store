@@ -1,0 +1,32 @@
+<section class="camera">
+  <div class="container">
+    <div class="row product-wrapper">
+      <div *ngFor="let product of productList" class="col-md-4 col-sm-4 col-6">
+        <div class="card product-card">
+          <a>
+            <div class="">
+              <img
+                class="card-img-top"
+                [src]="product.imageUrl"
+                [alt]="product.name"
+              />
+            </div>
+          </a>
+          <div class="card-body">
+            <p class="">
+              {{ product.name }}
+            </p>
+            <p>
+              Price: {{product.price | currency}}
+            </p>
+            <div class="tags">
+              <div class="tags-item" *ngFor="let item of product.categories">
+                <span class="tags-text">{{ item }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

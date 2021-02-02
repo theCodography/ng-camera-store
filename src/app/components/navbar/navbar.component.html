@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="../../../assets/images/logo.svg" alt="" />
+    </a>
+    <div class="navbar-collapse">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" [routerLink]="['/']">
+          <span
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Trang Chủ</span
+          >
+        </a>
+        <a class="nav-item nav-link" href="#">
+          <span>Giới Thiệu</span>
+        </a>
+        <a class="nav-item nav-link" [routerLink]="['/product']">
+          <span
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Máy Ảnh</span
+          >
+        </a>
+        <a class="nav-item nav-link" href="#">
+          <span>Liên hệ</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,1 +1,347 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  scroll-behavior: smooth;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+//*************************
+//*************************
+//********* BASE **********
+//*************************
+//*************************
+* {
+  box-sizing: inherit;
+}
+:root {
+  --primary-color: #cfd7dc;
+  --secondary-color: rgb(176, 181, 184);
+  --text-color: rgb(122, 125, 128);
+}
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+//*************************
+//*************************
+//******** HEADER *********
+//*************************
+//*************************
+.header {
+  background-image: url(./assets/images/bg2.jpg);
+  height: 90vh;
+  background-size: cover;
+}
+.logo {
+  width: 40px;
+}
+
+//*************************
+//*************************
+//******** NAVBAR *********
+//*************************
+//*************************
+span.active {
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 18px;
+    left: 0.5px;
+    border-bottom: 2px solid var(--secondary-color);
+  }
+}
+nav {
+  .nav-item {
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 5px 15px !important;
+    &:not(:first-child)::after {
+      content: "";
+      position: absolute;
+      height: 20px;
+      top: 0;
+      left: 0;
+      border-right: 1px solid var(--secondary-color);
+    }
+    span {
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
+  }
+  .navbar-collapse {
+    margin-left: 3rem;
+  }
+}
+.navbar {
+  padding: 0.5rem 18rem;
+}
+//*************************
+//*************************
+//******** FOOTER *********
+//*************************
+//*************************
+.footer {
+  border-top: 1px solid white;
+  &__social {
+    padding: 4rem 1rem;
+    width: 100%;
+    position: relative;
+    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+    font-size: 30px;
+    &-wrapper {
+      padding: none;
+      text-align: center;
+    }
+    &-item {
+      display: inline-block;
+      padding: 0 20px;
+    }
+    &-icon {
+      padding: 1px;
+      color: white;
+      display: block;
+      text-align: center;
+      &:hover i {
+        color: var(--text-color);
+      }
+    }
+  }
+  &__copyright {
+    border-top: 1px solid white;
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1rem 0px;
+    color: var(--text-color);
+  }
+}
+//*************************
+//*************************
+//********* GRID **********
+//*************************
+//*************************
+.camera {
+  background-color: var(--primary-color);
+  &-wrapper {
+    padding: 50px 0;
+  }
+  &__title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+.grid-image {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 250px 250px;
+  grid-gap: 10px;
+}
+.image-item {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.image-item:first-child {
+  grid-row: 1/-1;
+  grid-column: 1/3;
+}
+.image-item:nth-child(2),
+.image-item:nth-child(3) {
+  grid-row: 1/2;
+}
+.image-item:nth-child(4),
+.image-item:nth-child(5) {
+  grid-row: 2/-1;
+}
+@media screen and (max-width: 767px) {
+  .grid-image {
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+  }
+}
+.card {
+  border: 0;
+  &-body {
+    background: var(--secondary-color);
+  }
+  &-text {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+  }
+}
+
+//*************************
+//*************************
+//********* CARD **********
+//*************************
+//*************************
+.product-wrapper {
+  padding: 50px 0;
+}
+.product-card {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -1rem;
+}
+
+.tags-item {
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  background-color: rgba($color: #fff, $alpha: .5);
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tags-text {
+  white-space: nowrap;
+  max-width: 10rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.tags-remove {
+  cursor: pointer;
+  margin-left: 1rem;
+}
