@@ -1,23 +1,41 @@
 <section class="camera">
+  <ngb-carousel [interval]="4000" *ngIf="images">
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="picsum-img-wrapper">
+        <img class="w-100" [src]="image.imageUrl" alt="Random slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>No mouse navigation</h3>
+        <p>This carousel hides navigation arrows and indicators.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
   <div class="container">
+
+
     <div class="row product-wrapper">
-      <div *ngFor="let product of productList" class="col-md-4 col-sm-4 col-6">
+      <div
+        *ngFor="
+          let product of productList
+            | slice: ($page - 1) * $pageSize:$page * $pageSize
+        "
+        class="col-md-3 col-sm-4 col-6"
+      >
         <div class="card product-card">
-          <a>
-            <div class="">
-              <img
-                class="card-img-top"
-                [src]="product.imageUrl"
-                [alt]="product.name"
-              />
-            </div>
-          </a>
-          <div class="card-body">
-            <p class="">
-              {{ product.name }}
-            </p>
-            <p>
-              Price: {{product.price | currency}}
+          <img
+            class="card-img-top w-100"
+            [src]="product.imageUrl"
+            [alt]="product.name"
+          />
+          <div class="product-card__body px-4 pb-4">
+            <a href="">
+              <p class="product-card__name">
+                {{ product.name }}
+              </p>
+            </a>
+
+            <p class="product-card__price mb-4">
+              Price: {{ product.price | currency }}
             </p>
             <div class="tags">
               <div class="tags-item" *ngFor="let item of product.categories">
@@ -28,5 +46,24 @@
         </div>
       </div>
     </div>
+
+    <ngb-pagination
+      class="d-flex justify-content-center"
+      [collectionSize]="productList.length"
+      [(page)]="$page"
+      [pageSize]="$pageSize"
+      size="lg"
+    >
+      <ng-template ngbPaginationPrevious>
+        <div class="prev-card">
+          <i class="fas fa-long-arrow-alt-left"></i><span>Prev</span>
+        </div>
+      </ng-template>
+      <ng-template ngbPaginationNext>
+        <div class="next-card">
+          <span>Next</span><i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </ng-template>
+    </ngb-pagination>
   </div>
 </section>

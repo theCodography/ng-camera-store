@@ -4,6 +4,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
 import { ProductComponent } from './product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,6 @@ import { ProductComponent } from './product.component';
     ProductComponent,
 
   ],
-  imports: [CommonModule, ProductRoutingModule],
+  imports: [CommonModule, ProductRoutingModule, NgbModule],
 })
 export class ProductModule {}

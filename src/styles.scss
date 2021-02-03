@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
 
 html,
 body,
@@ -152,8 +154,9 @@ html {
 //*************************
 .header {
   background-image: url(./assets/images/bg2.jpg);
-  height: 90vh;
+  height: 600px;
   background-size: cover;
+  background-position: center;
 }
 .logo {
   width: 40px;
@@ -164,15 +167,18 @@ html {
 //******** NAVBAR *********
 //*************************
 //*************************
-span.active {
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    top: 18px;
-    left: 0.5px;
-    border-bottom: 2px solid var(--secondary-color);
+.span-nav {
+  &.active, &:hover {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: 18px;
+      left: 0.5px;
+      border-bottom: 2px solid var(--secondary-color);
+    }
   }
+
 }
 nav {
   .nav-item {
@@ -263,7 +269,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 250px 250px;
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
 .image-item {
   border-radius: 20px;
@@ -308,12 +314,30 @@ nav {
 //*************************
 //*************************
 .product-wrapper {
-  padding: 50px 0;
+  padding: 50px 0 20px 0;
 }
 .product-card {
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
+  background: transparent;
+  font-size: 16px;
+  &__body {
+    border: 2px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 0;
+    &:hover a {
+      text-decoration: none;
+    }
+  }
+
+  &__name {
+    text-align: center;
+    color: var(--text-color);
+    padding: 20px 20px;
+    font-size: 24px;
+  }
 }
 .tags {
   display: flex;
@@ -322,15 +346,14 @@ nav {
 }
 
 .tags-item {
-  padding: 1rem;
+  padding: .5rem 1rem;
   border-radius: 4px;
   text-align: center;
   display: flex;
   align-items: center;
   color: var(--text-color);
-  background-color: rgba($color: #fff, $alpha: .5);
+  background-color: rgba($color: #fff, $alpha: 0.5);
   margin-left: 1rem;
-  margin-bottom: 1rem;
 }
 
 .tags-text {
@@ -338,10 +361,64 @@ nav {
   max-width: 10rem;
   text-overflow: ellipsis;
   overflow: hidden;
-  line-height: 1.4;
 }
 
-.tags-remove {
-  cursor: pointer;
-  margin-left: 1rem;
+//*************************
+//*************************
+//*******PAGINATION********
+//*************************
+//*************************
+
+ngb-pagination {
+  padding-bottom: 20px;
+  li {
+    margin: 0 4px;
+    a {
+      background-color: transparent !important;
+      border: 0 !important;
+      padding: 0.928rem 1.5rem !important;
+      color: var(--text-color) !important;
+
+      &:focus {
+        outline: none;
+        box-shadow: none !important;
+      }
+    }
+    &.active,
+    &:not(:last-child,:first-child):hover {
+      background-color: var(--text-color);
+      border-radius: 50%;
+      .page-link {
+        color: white !important;
+      }
+    }
+    &.disabled{
+      .page-link {
+        color: var(--text-color) !important;
+      }
+    }
+  }
+}
+.prev-card,
+.next-card {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin: 0 10px;
+}
+
+
+//*************************
+//*************************
+//******** SLIDER *********
+//*************************
+//*************************
+
+ngb-carousel{
+  &:focus {
+    outline: none;
+  }
+  img {
+    height: 600px;
+    object-fit: cover;
+  }
 }
