@@ -11,19 +11,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProductListComponent
+        component: ProductListComponent,
       },
       {
         path: ':id',
         children: [
           {
             path: '',
-            component: ProductSingleComponent
-          }
-        ]
-      }
-    ]
-  }
+            component: ProductSingleComponent,
+          },
+        ],
+      },
+    ],
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

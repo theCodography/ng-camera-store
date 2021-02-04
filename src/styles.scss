@@ -168,7 +168,8 @@ html {
 //*************************
 //*************************
 .span-nav {
-  &.active, &:hover {
+  &.active,
+  &:hover {
     &::after {
       content: "";
       position: absolute;
@@ -178,7 +179,6 @@ html {
       border-bottom: 2px solid var(--secondary-color);
     }
   }
-
 }
 nav {
   .nav-item {
@@ -318,15 +318,13 @@ nav {
 }
 .product-card {
   border-radius: 10px;
+  margin-bottom: 30px;
   overflow: hidden;
-  margin-bottom: 20px;
   background: transparent;
   font-size: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.3s;
   &__body {
-    border: 2px solid black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top: 0;
     &:hover a {
       text-decoration: none;
     }
@@ -338,6 +336,9 @@ nav {
     padding: 20px 20px;
     font-size: 24px;
   }
+  &:hover {
+    transform: translateY(-10px);
+  }
 }
 .tags {
   display: flex;
@@ -346,7 +347,7 @@ nav {
 }
 
 .tags-item {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   text-align: center;
   display: flex;
@@ -377,7 +378,7 @@ ngb-pagination {
       background-color: transparent !important;
       border: 0 !important;
       padding: 0.928rem 1.5rem !important;
-      color: var(--text-color) !important;
+      color: black !important;
 
       &:focus {
         outline: none;
@@ -385,14 +386,14 @@ ngb-pagination {
       }
     }
     &.active,
-    &:not(:last-child,:first-child):hover {
+    &:not(:last-child, :first-child):hover {
       background-color: var(--text-color);
       border-radius: 50%;
       .page-link {
         color: white !important;
       }
     }
-    &.disabled{
+    &.disabled {
       .page-link {
         color: var(--text-color) !important;
       }
@@ -406,14 +407,13 @@ ngb-pagination {
   margin: 0 10px;
 }
 
-
 //*************************
 //*************************
 //******** SLIDER *********
 //*************************
 //*************************
 
-ngb-carousel{
+ngb-carousel {
   &:focus {
     outline: none;
   }

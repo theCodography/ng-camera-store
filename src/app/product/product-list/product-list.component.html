@@ -2,7 +2,7 @@
   <ngb-carousel [interval]="4000" *ngIf="images">
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="picsum-img-wrapper">
-        <img class="w-100" [src]="image.imageUrl" alt="Random slide">
+        <img class="w-100" [src]="image.imageUrl" alt="Random slide" />
       </div>
       <div class="carousel-caption">
         <h3>No mouse navigation</h3>
@@ -11,15 +11,13 @@
     </ng-template>
   </ngb-carousel>
   <div class="container">
-
-
     <div class="row product-wrapper">
       <div
         *ngFor="
           let product of productList
             | slice: ($page - 1) * $pageSize:$page * $pageSize
         "
-        class="col-md-3 col-sm-4 col-6"
+        class="col-md-3 col-sm-4 col-12"
       >
         <div class="card product-card">
           <img
@@ -35,7 +33,7 @@
             </a>
 
             <p class="product-card__price mb-4">
-              Price: {{ product.price | currency }}
+              Price: {{ product.price | currency: "VND" }}
             </p>
             <div class="tags">
               <div class="tags-item" *ngFor="let item of product.categories">
@@ -43,6 +41,7 @@
               </div>
             </div>
           </div>
+          <button (click)="addToCart(product)">Add</button>
         </div>
       </div>
     </div>
